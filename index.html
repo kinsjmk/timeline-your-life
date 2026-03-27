@@ -162,27 +162,7 @@ body {
   border-radius: 50% 50% 0 0 / 60px;
 }
 
-/* ─── YEAR BANNER ─── */
-.year-banner {
-  background: var(--ocean-1);
-  text-align: center;
-  padding: 3.5rem 2rem 1.5rem;
-}
-
-.year-banner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem, 4vw, 2.8rem);
-  font-style: italic;
-  color: var(--gold);
-  margin-bottom: 0.4rem;
-}
-
-.year-banner p {
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-}
+/* ─── OPEN OCEAN ─── */
 
 /* ─── TIMELINE ─── */
 .timeline-wrap {
@@ -211,7 +191,7 @@ body {
   grid-template-columns: 1fr 72px 1fr;
   align-items: start;
   gap: 0.8rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0;
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.65s ease, transform 0.65s ease;
@@ -336,7 +316,54 @@ body {
 .port.side-l .port-node  { grid-column: 2; }
 .port.side-l .port-empty { grid-column: 3; }
 
-/* ─── OPEN OCEAN ─── */
+.hero-year {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  font-style: italic;
+  color: rgba(242,184,82,0.65);
+  letter-spacing: 0.12em;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ─── YEAR BANNER ─── (now intro only) */
+.intro-banner {
+  background: var(--ocean-1);
+  text-align: center;
+  padding: 0 2rem 2.5rem;
+}
+
+.intro-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.intro-banner .intro-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-bottom: 2rem;
+}
+
+.intro-banner .intro-body {
+  max-width: 540px;
+  margin: 0 auto 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--cream-dim);
+  font-style: italic;
+}
+
+.intro-banner .intro-body strong {
+  color: var(--cream);
+  font-style: normal;
+  font-weight: 500;
+}
 .open-ocean {
   background: linear-gradient(180deg, var(--ocean-2) 0%, #060f1e 55%, var(--bg) 100%);
   padding: 5rem 2rem 4rem;
@@ -455,6 +482,70 @@ body {
 
 .footer em { color: var(--gold); font-style: normal; opacity: 0.7; }
 
+/* ─── ROUTE MAP ─── */
+.route-map-section {
+  background: var(--ocean-1);
+  padding: 0.5rem 0 0;
+  overflow: hidden;
+}
+
+.route-map-section svg {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── LEGS ─── */
+.leg {
+  position: relative;
+  height: var(--h, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leg-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  background: rgba(4,13,24,0.7);
+  border: 1px solid rgba(242,184,82,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.leg-nm {
+  font-size: 0.55rem;
+  color: rgba(242,184,82,0.4);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'Lora', serif;
+}
+
+.leg-dest {
+  font-size: 0.5rem;
+  color: rgba(245,230,203,0.18);
+  letter-spacing: 0.08em;
+  font-style: italic;
+}
+
+.leg--ocean .leg-label {
+  border-color: rgba(242,184,82,0.22);
+  background: rgba(4,13,24,0.85);
+}
+
+.leg--ocean .leg-nm {
+  color: rgba(242,184,82,0.7);
+}
+
+.leg--ocean .leg-dest {
+  color: rgba(245,230,203,0.3);
+}
+
 /* ─── MOBILE ─── */
 @media (max-width: 600px) {
   .timeline::before { left: 30px; transform: none; }
@@ -498,13 +589,95 @@ body {
     <h1 class="hero-title"><span class="hero-title-alt">The</span> <em>Foreground</em><br><span class="hero-title-alt">Voyage</span></h1>
     <p class="hero-tagline">A One Year Voyage &nbsp;·&nbsp; 2026</p>
     <div class="scroll-cta">Set Sail<div class="cta-line"></div></div>
+    <p class="hero-year">2026</p>
   </div>
 </section>
 
-<!-- ─── YEAR BANNER ─── -->
-<div class="year-banner">
-  <h2>2026</h2>
-  <p>Planned ports of call</p>
+<!-- ─── INTRO BANNER ─── -->
+<div class="intro-banner">
+  <p class="intro-body">
+    In a single year, a sailor can cover roughly <strong>9,300 nautical miles,</strong> enough to cross the Atlantic and return home. That's the classic Atlantic Circuit: west to east on the trade winds, south through Europe and Africa, then the great downwind crossing back to the Caribbean. <strong>Joanna Kinscherff's 2026</strong> maps onto that voyage.
+  </p>
+</div>
+
+<!-- ─── ROUTE MAP ─── -->
+<div class="route-map-section">
+  <svg viewBox="0 0 960 290" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#091830"/>
+        <stop offset="100%" stop-color="#0b2040"/>
+      </linearGradient>
+    </defs>
+    <!-- Ocean background -->
+    <rect width="960" height="290" fill="url(#oceanGrad)"/>
+    <!-- Subtle lat/long grid -->
+    <line x1="0" y1="90" x2="960" y2="90" stroke="rgba(245,230,203,0.035)" stroke-width="0.5" stroke-dasharray="4 5"/>
+    <line x1="0" y1="180" x2="960" y2="180" stroke="rgba(245,230,203,0.035)" stroke-width="0.5" stroke-dasharray="4 5"/>
+    <line x1="192" y1="0" x2="192" y2="290" stroke="rgba(245,230,203,0.03)" stroke-width="0.5" stroke-dasharray="4 5"/>
+    <line x1="480" y1="0" x2="480" y2="290" stroke="rgba(245,230,203,0.03)" stroke-width="0.5" stroke-dasharray="4 5"/>
+    <line x1="768" y1="0" x2="768" y2="290" stroke="rgba(245,230,203,0.03)" stroke-width="0.5" stroke-dasharray="4 5"/>
+    <!-- Landmass silhouettes -->
+    <path d="M0,18 L55,24 L80,42 L95,65 L98,90 L90,108 L76,122 L60,153 L44,190 L30,228 L15,258 L0,264 Z" fill="rgba(15,36,64,0.65)" stroke="rgba(245,230,203,0.05)" stroke-width="0.5"/>
+    <path d="M476,18 L520,17 L545,34 L552,62 L548,94 L528,113 L510,113 L492,106 L480,79 L476,48 Z" fill="rgba(15,36,64,0.65)" stroke="rgba(245,230,203,0.05)" stroke-width="0.5"/>
+    <path d="M548,114 L592,101 L632,113 L656,144 L660,194 L645,252 L615,280 L575,286 L550,270 L538,234 L534,185 L535,144 Z" fill="rgba(15,36,64,0.65)" stroke="rgba(245,230,203,0.05)" stroke-width="0.5"/>
+    <!-- Ocean label -->
+    <text x="295" y="170" text-anchor="middle" font-family="'Lora', serif" font-size="11" fill="rgba(245,230,203,0.07)" letter-spacing="4" font-style="italic">North Atlantic Ocean</text>
+    <text x="162" y="212" text-anchor="middle" font-family="'Lora', serif" font-size="9" fill="rgba(245,230,203,0.05)" letter-spacing="2" font-style="italic">Caribbean</text>
+    <!-- Route path -->
+    <path d="M 95,96 C 108,117 126,134 140,146 C 212,141 282,114 348,102 C 400,95 442,78 476,74 C 482,89 487,98 492,106 C 479,138 469,156 460,170 C 443,201 430,220 418,235 C 338,236 270,235 200,231 C 178,230 162,207 148,180 C 130,147 110,118 95,96" fill="none" stroke="rgba(242,184,82,0.32)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <!-- Dec return -->
+    <path d="M 148,180 C 133,153 112,122 95,96" fill="none" stroke="rgba(232,143,163,0.22)" stroke-width="1" stroke-dasharray="3 4"/>
+    <!-- Total distance -->
+    <text x="480" y="276" text-anchor="middle" font-family="'Lora', serif" font-size="9.5" fill="rgba(242,184,82,0.18)" letter-spacing="2.5">~ 9,300 nautical miles · The Atlantic Circuit</text>
+    <!-- Feb / Newport -->
+    <circle cx="95" cy="96" r="6" fill="#f2b852" opacity="0.88"/>
+    <circle cx="95" cy="96" r="11" fill="none" stroke="#f2b852" stroke-width="0.8" opacity="0.25"/>
+    <text x="84" y="87" text-anchor="end" font-family="'Lora', serif" font-size="9" fill="rgba(242,184,82,0.9)" letter-spacing="1.2">NEWPORT</text>
+    <text x="84" y="74" text-anchor="end" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(242,184,82,0.5)" letter-spacing="1" font-style="italic">Feb · departure</text>
+    <!-- Mar / Bermuda -->
+    <circle cx="140" cy="146" r="6" fill="#9b8ec4" opacity="0.88"/>
+    <circle cx="140" cy="146" r="11" fill="none" stroke="#9b8ec4" stroke-width="0.8" opacity="0.25"/>
+    <text x="154" y="142" text-anchor="start" font-family="'Lora', serif" font-size="9" fill="rgba(155,142,196,0.9)" letter-spacing="1.2">BERMUDA</text>
+    <text x="154" y="155" text-anchor="start" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(155,142,196,0.5)" letter-spacing="1" font-style="italic">Mar · 650 nm</text>
+    <!-- Apr / Azores -->
+    <circle cx="348" cy="102" r="6" fill="#e8725a" opacity="0.88"/>
+    <circle cx="348" cy="102" r="11" fill="none" stroke="#e8725a" stroke-width="0.8" opacity="0.25"/>
+    <text x="348" y="89" text-anchor="middle" font-family="'Lora', serif" font-size="9" fill="rgba(232,114,90,0.9)" letter-spacing="1.2">AZORES</text>
+    <text x="348" y="76" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(232,114,90,0.5)" letter-spacing="1" font-style="italic">Apr · 1,800 nm</text>
+    <!-- May / Lisbon -->
+    <circle cx="476" cy="74" r="6" fill="#4cc9a0" opacity="0.88"/>
+    <circle cx="476" cy="74" r="11" fill="none" stroke="#4cc9a0" stroke-width="0.8" opacity="0.25"/>
+    <text x="476" y="61" text-anchor="middle" font-family="'Lora', serif" font-size="9" fill="rgba(76,201,160,0.9)" letter-spacing="1.2">LISBON</text>
+    <text x="476" y="48" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(76,201,160,0.5)" letter-spacing="1" font-style="italic">May · 900 nm</text>
+    <!-- Jun / Gibraltar -->
+    <circle cx="492" cy="106" r="6" fill="#f2b852" opacity="0.88"/>
+    <circle cx="492" cy="106" r="11" fill="none" stroke="#f2b852" stroke-width="0.8" opacity="0.25"/>
+    <text x="506" y="101" text-anchor="start" font-family="'Lora', serif" font-size="9" fill="rgba(242,184,82,0.9)" letter-spacing="1.2">GIBRALTAR</text>
+    <text x="506" y="114" text-anchor="start" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(242,184,82,0.5)" letter-spacing="1" font-style="italic">Jun · 300 nm</text>
+    <!-- Jul / Canaries -->
+    <circle cx="460" cy="170" r="6" fill="#e8a040" opacity="0.88"/>
+    <circle cx="460" cy="170" r="11" fill="none" stroke="#e8a040" stroke-width="0.8" opacity="0.25"/>
+    <text x="474" y="165" text-anchor="start" font-family="'Lora', serif" font-size="9" fill="rgba(232,160,64,0.9)" letter-spacing="1.2">CANARY IS.</text>
+    <text x="474" y="178" text-anchor="start" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(232,160,64,0.5)" letter-spacing="1" font-style="italic">Jul · 700 nm</text>
+    <!-- Aug / Cape Verde -->
+    <circle cx="418" cy="235" r="6" fill="#e88fa3" opacity="0.88"/>
+    <circle cx="418" cy="235" r="11" fill="none" stroke="#e88fa3" stroke-width="0.8" opacity="0.25"/>
+    <text x="432" y="230" text-anchor="start" font-family="'Lora', serif" font-size="9" fill="rgba(232,143,163,0.9)" letter-spacing="1.2">CAPE VERDE</text>
+    <text x="432" y="243" text-anchor="start" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(232,143,163,0.5)" letter-spacing="1" font-style="italic">Aug · 850 nm</text>
+    <!-- Sep / Barbados -->
+    <circle cx="200" cy="231" r="6" fill="#f2b852" opacity="0.88"/>
+    <circle cx="200" cy="231" r="11" fill="none" stroke="#f2b852" stroke-width="0.8" opacity="0.25"/>
+    <text x="200" y="251" text-anchor="middle" font-family="'Lora', serif" font-size="9" fill="rgba(242,184,82,0.9)" letter-spacing="1.2">BARBADOS</text>
+    <text x="200" y="264" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(242,184,82,0.5)" letter-spacing="1" font-style="italic">Sep · 2,100 nm</text>
+    <!-- Nov / Bahamas -->
+    <circle cx="148" cy="180" r="6" fill="#4cc9a0" opacity="0.88"/>
+    <circle cx="148" cy="180" r="11" fill="none" stroke="#4cc9a0" stroke-width="0.8" opacity="0.25"/>
+    <text x="134" y="175" text-anchor="end" font-family="'Lora', serif" font-size="9" fill="rgba(76,201,160,0.9)" letter-spacing="1.2">BAHAMAS</text>
+    <text x="134" y="188" text-anchor="end" font-family="'Cormorant Garamond', serif" font-size="8.5" fill="rgba(76,201,160,0.5)" letter-spacing="1" font-style="italic">Nov · 1,200 nm</text>
+    <!-- Dec label -->
+    <text x="72" y="148" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="8" fill="rgba(232,143,163,0.32)" letter-spacing="0.8" font-style="italic" transform="rotate(-62, 72, 148)">Dec · 800 nm</text>
+  </svg>
 </div>
 
 <!-- ─── TIMELINE ─── -->
@@ -532,6 +705,11 @@ body {
       </div>
     </div>
 
+    <!-- LEG: Newport → Bermuda -->
+    <div class="leg" style="--h: 3.5rem">
+      <div class="leg-label"><span class="leg-nm">~ 650 nm</span><span class="leg-dest">Newport → Bermuda</span></div>
+    </div>
+
     <!-- MARCH -->
     <div class="port side-l" data-port>
       <div class="port-card" style="--c:#9b8ec4">
@@ -557,6 +735,11 @@ body {
       <div class="port-empty"></div>
     </div>
 
+    <!-- LEG: Bermuda → Azores (big crossing) -->
+    <div class="leg leg--ocean" style="--h: 8rem">
+      <div class="leg-label"><span class="leg-nm">~ 1,800 nm</span><span class="leg-dest">Bermuda → Azores · open ocean</span></div>
+    </div>
+
     <!-- APRIL -->
     <div class="port side-r" data-port>
       <div class="port-empty"></div>
@@ -574,10 +757,16 @@ body {
         <ul class="milestones">
           <li class="milestone">Foreground website launches</li>
           <li class="milestone">Business development outreach begins</li>
+          <li class="milestone">Continue to form interior design partnerships</li>
           <li class="milestone">AI tool vetting — Round 1</li>
           <li class="milestone">French A3 course begins</li>
         </ul>
       </div>
+    </div>
+
+    <!-- LEG: Azores → Lisbon -->
+    <div class="leg" style="--h: 4.5rem">
+      <div class="leg-label"><span class="leg-nm">~ 900 nm</span><span class="leg-dest">Azores → Lisbon</span></div>
     </div>
 
     <!-- MAY -->
@@ -599,6 +788,11 @@ body {
         <div class="port-date">May<br>2026</div>
       </div>
       <div class="port-empty"></div>
+    </div>
+
+    <!-- LEG: Lisbon → Gibraltar -->
+    <div class="leg" style="--h: 2rem">
+      <div class="leg-label"><span class="leg-nm">~ 300 nm</span><span class="leg-dest">Lisbon → Gibraltar</span></div>
     </div>
 
     <!-- JUNE -->
@@ -625,8 +819,14 @@ body {
         <ul class="milestones">
           <li class="milestone">ZFLO Series B funding closes</li>
           <li class="milestone">Peter Promotion</li>
+          <li class="milestone">Piano: Level 6 booklet mastered</li>
         </ul>
       </div>
+    </div>
+
+    <!-- LEG: Gibraltar → Canary Islands -->
+    <div class="leg" style="--h: 3.5rem">
+      <div class="leg-label"><span class="leg-nm">~ 700 nm</span><span class="leg-dest">Gibraltar → Canary Islands</span></div>
     </div>
 
     <!-- JULY -->
@@ -652,6 +852,11 @@ body {
       <div class="port-empty"></div>
     </div>
 
+    <!-- LEG: Canary Islands → Cape Verde -->
+    <div class="leg" style="--h: 4rem">
+      <div class="leg-label"><span class="leg-nm">~ 850 nm</span><span class="leg-dest">Canary Islands → Cape Verde</span></div>
+    </div>
+
     <!-- AUGUST -->
     <div class="port side-r" data-port>
       <div class="port-empty"></div>
@@ -672,6 +877,11 @@ body {
           <li class="milestone">Mexico City — close friend's wedding</li>
         </ul>
       </div>
+    </div>
+
+    <!-- LEG: Cape Verde → Barbados (trade wind crossing) -->
+    <div class="leg leg--ocean" style="--h: 9rem">
+      <div class="leg-label"><span class="leg-nm">~ 2,100 nm</span><span class="leg-dest">Cape Verde → Barbados · trade wind crossing</span></div>
     </div>
 
     <!-- SEPTEMBER -->
@@ -696,6 +906,11 @@ body {
       <div class="port-empty"></div>
     </div>
 
+    <!-- LEG: Barbados → Bahamas -->
+    <div class="leg" style="--h: 5.5rem">
+      <div class="leg-label"><span class="leg-nm">~ 1,200 nm</span><span class="leg-dest">Barbados → Bahamas</span></div>
+    </div>
+
     <!-- NOVEMBER -->
     <div class="port side-r" data-port>
       <div class="port-empty"></div>
@@ -711,8 +926,14 @@ body {
         <div class="port-name">November</div>
         <ul class="milestones">
           <li class="milestone">Kinscherff Thanksgiving — New Orleans</li>
+          <li class="milestone">Piano: Level 7 booklet mastered</li>
         </ul>
       </div>
+    </div>
+
+    <!-- LEG: Bahamas → Newport (homecoming) -->
+    <div class="leg" style="--h: 4rem">
+      <div class="leg-label"><span class="leg-nm">~ 800 nm</span><span class="leg-dest">Bahamas → Newport</span></div>
     </div>
 
     <!-- DECEMBER -->
@@ -722,6 +943,7 @@ body {
         <ul class="milestones">
           <li class="milestone">Capalbo Christmas — Connecticut</li>
           <li class="milestone">Foreground profitable — contract ops work retired</li>
+          <li class="milestone">Design art portfolio website</li>
         </ul>
       </div>
       <div class="port-node">
